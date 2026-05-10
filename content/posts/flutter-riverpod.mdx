@@ -1,0 +1,50 @@
+---
+title: "Flutter ile State Yönetimi: Neden Riverpod?"
+date: "15 MART 2025"
+rawDate: "2025-03-15"
+excerpt: "Modern Flutter geliştirmede state yönetimi nasıl yapılır, hangi araçlar ne zaman kullanılır?"
+category: "FLUTTER"
+coverBg: "#111"
+---
+
+Flutter ile mobil uygulama geliştirirken en çok kafayı yiyen konulardan biri **state yönetimi**. Provider mı, Bloc mu, Riverpod mu? Bu yazıda kendi deneyimlerimden yola çıkarak Riverpod'u neden tercih ettiğimi anlatıyorum.
+
+## State Yönetimi Neden Önemli?
+
+Küçük bir uygulama geliştirirken `setState` yeterli. Ama uygulama büyüdükçe — birden fazla ekran, API çağrıları, kullanıcı oturumu — tek bir widget'ın içinde her şeyi yönetmek imkânsız hale geliyor.
+
+## Riverpod'u Tercih Etmemin Nedenleri
+
+### 1. Derleme Zamanı Güvenliği
+
+Provider'da çok sık yaşanan `ProviderNotFoundException` hatasını Riverpod'da görmezsiniz. Tüm provider'lar global düzeyde tanımlandığı için derleme aşamasında hata yakalanır.
+
+### 2. Test Kolaylığı
+
+```dart
+final counterProvider = StateProvider<int>((ref) => 0);
+
+// Testte kolayca override edebilirsin
+final container = ProviderContainer(overrides: [
+  counterProvider.overrideWith((ref) => 42),
+]);
+```
+
+### 3. AsyncValue ile Temiz Async Kod
+
+```dart
+final userProvider = FutureProvider<User>((ref) async {
+  return await ref.read(apiService).fetchUser();
+});
+
+// Widget'ta:
+ref.watch(userProvider).when(
+  data: (user) => Text(user.name),
+  loading: () => CircularProgressIndicator(),
+  error: (e, _) => Text('Hata: $e'),
+);
+```
+
+## Sonuç
+
+Riverpod öğrenmesi biraz zaman alıyor, ama bir kez alıştığında geriye dönmek istemiyorsun. Özellikle `AsyncNotifier` ve `StreamProvider` kombinasyonu gerçek zamanlı uygulamalarda çok güçlü.
