@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar'
 import { getPost, getPosts } from '@/lib/posts'
-import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
+import ReactMarkdown from 'react-markdown'
 
 export async function generateStaticParams() {
   return getPosts().map((p) => ({ slug: p.slug }))
@@ -24,7 +24,7 @@ export default function PostPage({ params }) {
           <h1>{meta.title}</h1>
           <div className="blog-page-meta">{meta.date} &nbsp;·&nbsp; {meta.category}</div>
           <div className="blog-content">
-            <MDXRemote source={content} />
+            <ReactMarkdown>{content}</ReactMarkdown>
           </div>
         </article>
       </main>
