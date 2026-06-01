@@ -14,7 +14,7 @@ const projeDetaylari = {
   },
   'board-game-arsiv-sistemi': {
     isim: 'Board Game Arşiv Sistemi',
-    etiketler: ['FLUTTER', 'HIVE', 'DART'],
+    etiketler: ['MSSQL', 'VERİ TABANI'],
     ozet: 'Kutu oyunları meraklılarının koleksiyonlarını dijital ortamda saklayabileceği, oynadıkları oyunları kaydedip puanlayabileceği yerli ve kapsamlı bir arşivleme platformudur.',
     teknikDetay: 'İnternet bağlantısının olmadığı senaryolarda bile kullanıcı verilerinin kaybolmaması amacıyla cihaz içi (local) NoSQL veritabanı çözümü olan Hive entegre edilmiştir. CRUD işlemleri ve arama optimizasyonları milisaniyeler seviyesinde çalışacak şekilde optimize edilmiştir.',
     mimari: 'Gereksiz render işlemlerinin önüne geçmek amacıyla hafif ve performans dostu bir state yönetimi kurgulanmıştır. Clean Code standartlarında, sürdürülebilir modüller halinde yazılmıştır.',

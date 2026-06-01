@@ -10,7 +10,7 @@ export default function Navbar() {
         <li><Link href="#deneyim">DENEYİM</Link></li>
         <li><Link href="#projeler">PROJELER</Link></li>
         
-        <li><Link href="/blog">BLOG</Link></li>
+        <li><Link href="#blog">BLOG</Link></li>
         
         <li><Link href="#iletisim">İLETİŞİM</Link></li>
       </ul>
