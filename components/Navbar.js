@@ -9,10 +9,14 @@ export default function Navbar() {
         <li><Link href="#egitim">EĞİTİM</Link></li>
         <li><Link href="#deneyim">DENEYİM</Link></li>
         <li><Link href="#projeler">PROJELER</Link></li>
-        <li><Link href="/blog">BLOG</Link></li>
+        
+        {/* BLOG yazısı geçici olarak gizlendi. */}
+        {/* <li><Link href="/blog">BLOG</Link></li> */}
+        
         <li><Link href="#iletisim">İLETİŞİM</Link></li>
       </ul>
-      <a href="/cv.pdf" target="_blank" className="nav-btn">CV İndir →</a>
+      
+      <a href="/cv.pdf" download="Tugba_Nur_Aslan_CV.pdf" className="nav-btn">CV İndir →</a>
     </nav>
   )
 }
